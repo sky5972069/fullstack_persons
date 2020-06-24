@@ -1,5 +1,5 @@
 const express = require('express')
-// const morgan = require('morgan')
+const morgan = require('morgan')
 const app = express()
 const cors = require('cors')
 
@@ -7,9 +7,9 @@ app.use(cors())
 app.use(express.json())
 app.use(express.static('build'))
 
-// morgan.token('type', function (req, res) { return JSON.stringify(req.body) })
-// morgan.format('joke', ':method :url :status :type');
-// app.use(morgan('joke'))
+morgan.token('type', function (req, res) { return JSON.stringify(req.body) })
+morgan.format('joke', ':method :url :status :type');
+app.use(morgan('joke'))
 let persons = [
   {
     "name": "Arto Hellas",
