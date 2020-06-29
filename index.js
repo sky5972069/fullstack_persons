@@ -7,7 +7,7 @@ const Person = require('./models/person')
 
 app.use(cors())
 app.use(express.json())
-// app.use(express.static('build'))
+app.use(express.static('build'))
 
 morgan.token('type', function (req, res) { return JSON.stringify(req.body) })
 morgan.format('joke', ':method :url :status :type');
